@@ -9,8 +9,9 @@ sap.ui.define([
             // Mocked JSON data - You can replace this with an OData service call
             let oData = {
                 ASOPNumber: 300000043,
+                ASOPDate: "05/21/2024",
                 DocumentType: "ZOR Test",
-                OrderAmount: "123,322.32",
+                OrderAmount: "123,322.32 USD",
                 Currency: "INR",
                 BillTo: "400151",
                 ShipTo: "400151",
@@ -28,6 +29,9 @@ sap.ui.define([
 
             let oModel = new sap.ui.model.json.JSONModel(oData);
             this.getView().setModel(oModel);
+        },
+        onPdf: function () {
+            console.log("pdf pressed")
         }
     });
 });
