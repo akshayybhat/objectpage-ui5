@@ -62,6 +62,14 @@ sap.ui.define([
                     { type: "Error", title: "Order Issue", description: "Missing mandatory field", groupName: "Sales Order" },
                     { type: "Warning", title: "Delivery Delay", description: "Possible shipping delay", groupName: "Logistics" },
                     { type: "Success", title: "Order Processed", description: "Order is successfully processed", groupName: "Sales Order" }
+                ],
+                SystemMessages: [
+                    { saleDocType: "ZOR", status: "Pending", message: "Missing mandatory field" },
+                    { saleDocType: "ZOR", status: "Complete", message: "Order processed successfully" }
+                ],
+                BusinessValidationMessages: [
+                    { saleDocType: "ZOR", status: "Error", message: "Invalid data" },
+                    { saleDocType: "ZOR", status: "Warning", message: "Data mismatch" }
                 ]
             };
 

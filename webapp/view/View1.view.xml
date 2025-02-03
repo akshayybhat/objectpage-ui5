@@ -227,30 +227,105 @@
                     </m:Panel>
 
                     <!-- messages  -->
-                    <m:IconTabBar expandable="true" backgroundDesign="Transparent" select="onTabSelect"  class="sapUiMediumMarginBegin sapUiMediumMarginEnd" >
+                    <m:IconTabBar expandable="true" backgroundDesign="Transparent" select="onTabSelect"  >
     <m:items >
         
         <!-- Processing Log Tab -->
         <m:IconTabFilter text="Processing log" key="processing">
-            <m:VBox  id="processingLogVBox">
-                <!-- <m:MessagePopover id="messagePopover">
-                    <m:MessageView id="messageView"/>
-                </m:MessagePopover> -->
-            </m:VBox>
+            <m:FlexBox direction="Row" justifyContent="SpaceBetween" width="100%">
+    
+    <!-- System Messages Panel -->
+    <m:Panel headerText="System Messages" class="sapUiMediumMarginTop sapUiSmallMarginBottom sapUiSmallMarginBegin" width="90%">
+        <m:Table id="systemMessageTable" items="{/SystemMessages}">
+            <m:columns>
+                <m:Column><m:Text text="Sales Doc. Type"/></m:Column>
+                <m:Column><m:Text text="Status"/></m:Column>
+                <m:Column><m:Text text="Message"/></m:Column>
+            </m:columns>
+            <m:items>
+                <m:ColumnListItem>
+                    <m:cells>
+                        <m:Text text="{saleDocType}"/>
+                        <m:Text text="{status}"/>
+                        <m:Text text="{message}"/>
+                    </m:cells>
+                </m:ColumnListItem>
+            </m:items>
+        </m:Table>
+    </m:Panel>
+
+    <!-- Business Validation Messages Panel -->
+    <m:Panel headerText="Business Validation Messages" class="sapUiMediumMarginTop sapUiSmallMarginBottom sapUiSmallMarginEnd" width="90%">
+        <m:Table id="businessValidationTable" items="{/BusinessValidationMessages}">
+            <m:columns>
+                <m:Column><m:Text text="Sales Doc. Type"/></m:Column>
+                <m:Column><m:Text text="Status"/></m:Column>
+                <m:Column><m:Text text="Message"/></m:Column>
+            </m:columns>
+            <m:items>
+                <m:ColumnListItem>
+                    <m:cells>
+                        <m:Text text="{saleDocType}"/>
+                        <m:Text text="{status}"/>
+                        <m:Text text="{message}"/>
+                    </m:cells>
+                </m:ColumnListItem>
+            </m:items>
+        </m:Table>
+    </m:Panel>
+
+</m:FlexBox>
+
+
+
         </m:IconTabFilter>
 
         <!-- Incompletion Log Tab -->
         <m:IconTabFilter text="Incompletion log" key="incompletion">
-            <m:VBox>
-                <m:Text text="Incompletion log details go here."/>
-            </m:VBox>
+            <m:Panel headerText="Incompletions" class="sapUiMediumMarginTop sapUiSmallMarginBottom sapUiMediumMarginEnd sapUiMediumMarginBegin" width="90%">
+        <m:Table id="incompletionTable" items="{/BusinessValidationMessages}">
+            <m:columns>
+                <m:Column><m:Text text="Sales Doc. Type"/></m:Column>
+                <m:Column><m:Text text="Status"/></m:Column>
+                <m:Column><m:Text text="Message"/></m:Column>
+                <m:Column><m:Text text="Missing Data"/></m:Column>
+            </m:columns>
+            <m:items>
+                <m:ColumnListItem>
+                    <m:cells>
+                        <m:Text text="{saleDocType}"/>
+                        <m:Text text="{status}"/>
+                        <m:Text text="{message}"/>
+                        <m:Text text="Lorem ipsum lorem ipsum"/>
+                    </m:cells>
+                </m:ColumnListItem>
+            </m:items>
+        </m:Table>
+    </m:Panel>
         </m:IconTabFilter>
 
         <!-- Supporting Documents Tab -->
         <m:IconTabFilter text="Supporting documents" key="documents">
-            <m:VBox>
-                <m:Text text="Supporting documents content goes here."/>
-            </m:VBox>
+            <m:Panel headerText="Documents" class="sapUiMediumMarginTop sapUiSmallMarginBottom sapUiMediumMarginEnd sapUiMediumMarginBegin" width="90%">
+        <m:Table id="supportingdoc">
+            <m:columns>
+                <m:Column><m:Text text="Document Name"/></m:Column>
+                <m:Column><m:Text text="Type"/></m:Column>
+                <m:Column><m:Text text="Last Updated"/></m:Column>
+                <m:Column><m:Text text="Actions"/></m:Column>
+            </m:columns>
+            <m:items>
+                <m:ColumnListItem>
+                    <m:cells>
+                        <m:Text text="PO 24030005 Delv 8234551"/>
+                        <m:Text text="PDF"/>
+                        <m:Text text="12/08/2024"/>
+                        <m:Button icon="sap-icon://show" type="Transparent" />
+                    </m:cells>
+                </m:ColumnListItem>
+            </m:items>
+        </m:Table>
+    </m:Panel>
         </m:IconTabFilter>
 
     </m:items>
