@@ -1,9 +1,9 @@
 <mvc:View controllerName="project1.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:m="sap.m" xmlns="sap.uxap"
-    xmlns:layout="sap.ui.layout">
+    xmlns:layout="sap.ui.layout" xmlns:t="sap.ui.table">
     <m:Page id="page" title="{i18n>title}" showHeader="false" showFooter="true">
-         <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" upperCaseAnchorBar="false" isChildPage="true" height="100%">
+        <ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" upperCaseAnchorBar="false" height="auto">
         
         <!-- Object Page Header -->
         <headerTitle>
@@ -76,10 +76,10 @@
 
         <!-- Tabs Section -->
         <sections >
-            <ObjectPageSection class="sapUiNoMargin">
+            <ObjectPageSection class="sapUiNoMargin" >
                 
-                    <ObjectPageSubSection class="sapUiNoMargin">
-                        <blocks>
+                    <ObjectPageSubSection class="sapUiNoMargin" >
+                        <blocks >
                             <m:IconTabBar expandable="true" >
                                 <m:items>
                                     <m:IconTabFilter text="Sales Order Data 1" key="data1" >
@@ -149,6 +149,112 @@
                
             </ObjectPageSection>
         </sections>
+          
     </ObjectPageLayout>
+    <m:Panel headerText="Sales Order Item Data" class = "sapUiMediumMarginTop sapUiSmallMarginBottom sapUiMediumMarginBegin" width="95%">
+    <!-- Sales Order Items Table - Added Below -->
+        <t:Table id="salesOrderTable" width="auto"
+                             rows="{/SalesOrderItems}"
+                             selectionMode="None"
+                             visibleRowCount="2">
+                        
+                        <t:Column>
+                            <t:label><m:Label text="Sale doc type"/></t:label>
+                            <t:template><m:Text text="{saleDocType}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Item"/></t:label>
+                            <t:template><m:Text text="{item}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Material"/></t:label>
+                            <t:template><m:Text text="{material}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Material desc"/></t:label>
+                            <t:template><m:Text text="{materialDesc}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Qty"/></t:label>
+                            <t:template><m:Text text="{qty}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="UoM"/></t:label>
+                            <t:template><m:Text text="{uom}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Plant"/></t:label>
+                            <t:template><m:Text text="{plant}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Shipping point"/></t:label>
+                            <t:template><m:Text text="{shippingPoint}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Unit price"/></t:label>
+                            <t:template><m:Text text="{unitPrice}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Billing date"/></t:label>
+                            <t:template><m:Text text="{billingDate}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Requested delivery date"/></t:label>
+                            <t:template><m:Text text="{requestedDeliveryDate}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Confirmed qty"/></t:label>
+                            <t:template><m:Text text="{confirmedQty}"/></t:template>
+                        </t:Column>
+
+                        <t:Column>
+                            <t:label><m:Label text="Sales Unit"/></t:label>
+                            <t:template><m:Text text="{salesUnit}"/></t:template>
+                        </t:Column>
+
+                    </t:Table>
+                    </m:Panel>
+
+                    <!-- messages  -->
+                    <m:IconTabBar expandable="true" backgroundDesign="Transparent" select="onTabSelect"  class="sapUiMediumMarginBegin sapUiMediumMarginEnd" >
+    <m:items >
+        
+        <!-- Processing Log Tab -->
+        <m:IconTabFilter text="Processing log" key="processing">
+            <m:VBox  id="processingLogVBox">
+                <!-- <m:MessagePopover id="messagePopover">
+                    <m:MessageView id="messageView"/>
+                </m:MessagePopover> -->
+            </m:VBox>
+        </m:IconTabFilter>
+
+        <!-- Incompletion Log Tab -->
+        <m:IconTabFilter text="Incompletion log" key="incompletion">
+            <m:VBox>
+                <m:Text text="Incompletion log details go here."/>
+            </m:VBox>
+        </m:IconTabFilter>
+
+        <!-- Supporting Documents Tab -->
+        <m:IconTabFilter text="Supporting documents" key="documents">
+            <m:VBox>
+                <m:Text text="Supporting documents content goes here."/>
+            </m:VBox>
+        </m:IconTabFilter>
+
+    </m:items>
+</m:IconTabBar>
+
     </m:Page>
 </mvc:View>
